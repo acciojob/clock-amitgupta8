@@ -1,1 +1,20 @@
 //your JS code here. If required.
+function updateClock() {
+			var now = new Date();
+
+			var hours = now.getHours();
+			var minutes = now.getMinutes();
+			var seconds = now.getSeconds();
+
+			hours = hours % 12;
+			hours = hours ? hours : 12;
+			minutes = minutes < 10 ? '0' + minutes : minutes;
+			seconds = seconds < 10 ? '0' + seconds : seconds;
+
+			var timeString = hours + ':' + minutes + ':' + seconds;
+			document.getElementById('timer').innerHTML = timeString;
+
+			setTimeout(updateClock, 1000);
+		}
+
+		updateClock();
